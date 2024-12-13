@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oomori | Abous Us</title>
+    <link rel="icon" type="image/png" href="oomori_images/oomori_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!--Navigation Bar-->
+    <div class="navbar">
+        <a href="https://www.facebook.com/oomori.ph">
+            <div class="logo">
+                <img src="oomori_images/oomori_logo.png" alt="logo">
+            </div>
+        </a>
+        <ul>
+            <li><a href="Oomori_Home.html">Home</a></li>
+            <li><a href="Oomori_Menu.html">Menu</a></li>
+            <li><a class="active" href="Oomori_AboutUs.html">About Us</a></li>
+            <li><a href="Oomori_Home.html#gallery">Gallery</a></li>
+            <li><a href="" id="openFormButton">Reserve Now!</a></li>
+        </ul>
+    </div>
+
+    <!-- HIDDEN RESERVATION FORM-->
+    <div class="popup" id="popupForm">
+        <div class="Reg-form-box">
+            <span class="close" id="closeFormButton">&times;</span>
+            <form class="Reg-form" id="reservationForm" onsubmit="return validateForm()">
+                <h2>Reservation Form</h2>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Reservation Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Reservation Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="request">Special Request</label>
+                    <textarea id="request" name="request" class="special-request-textarea"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- ABOUT US, OPENING HOURS, DID YOU KNOW-->
+    <div class="about-us">
+        <div class="about-us-container">
+            <h1>ABOUT US</h1>
+            <p>
+                <strong>Oomori Japanese Cuisine</strong>, your premier destination for authentic Japanese flavors in the heart of the Philippines. Our restaurant has become a cherished spot for both locals and visitors who seek a genuine taste of Japan, especially our renowned sushi, crafted with the finest ingredients and utmost care.
+            </p>
+            <p>
+                Founded in 2018, Oomori Japanese Cuisine began as a humble family-run eatery with a passion for bringing the rich culinary traditions of Japan to locals in the Philippines. Over the years, we have grown into a beloved dining haven known for our exceptional sushi, delectable ramen, and a variety of other classic Japanese dishes. Our chefs are dedicated to preserving the authenticity of Japanese cuisine while infusing a touch of Filipino warmth and hospitality.
+            </p>
+        </div>
+    </div>
+    <div class="about-us">
+        <div class="about-us-container">
+            <h1>Opening Hours</h1>
+            <p style="text-align: center;">One Banawe Complex, Banawe Street Corner Calamba Street, Quezon City, Philippines</p>
+            <p style="text-align: center;"><b>Monday to Sunday:</b> <i>11:00AM - 9:00PM</i></p>
+        </div>
+    </div>
+    <div class="about-us">
+        <div class="about-us-container">
+            <h1>Did You Know?</h1>
+            <p>Did you know that <b><i>"Oomori"</i></b> means <b><i>"large serving"</i></b> in Japanese? True to our name, we believe in offering generous portions that not only satisfy your hunger but also your soul. Every meal at Oomori is a celebration of flavors, traditions, and the joy of sharing good food with great company.</p>
+            <p>Come and experience the essence of Japan at Oomori Japanese Cuisine. Whether you are a sushi aficionado or new to Japanese food, we promise a dining experience that will leave you coming back for more.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-section">
+            <h3>Oomori</h3>
+            <ul>
+                <li><a href="Oomori_AboutUs.html">About Us</a></li>
+                <li><a href="" id="openFormButtonFooter">Reserve Now!</a></li>
+                <li><a href="Oomori_Home.html#gallery">Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="oomori_images/address-logo.png" alt="Address Logo" class="contact-logo">
+                    <p>One Banawe Complex, Banawe Street Corner Calamba Street, Quezon City, Philippines</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/phone-logo.png" alt="Phone Logo" class="contact-logo">
+                    <p>0918 540 8890</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/email-logo.png" alt="Email Logo" class="contact-logo">
+                    <p>oomorijapanesecuisine@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Opening Hours</h3>
+            <p>Monday to Sunday</p>
+            <p>11:00AM - 9:00PM</p>
+        </div>
+        <!-- Keep Updated Section -->
+        <div class="footer-section">
+            <h3>Keep Updated!</h3>
+            <p>Enter your email to be updated with our special offers and announcements!</p>
+            <form id="newsletter-form">
+                <input type="email" id="email" placeholder="Enter your email...">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+<script src="reservation.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

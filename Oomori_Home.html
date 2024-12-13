@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Oomori | Home</title>
+    <link rel="icon" type="image/png" href="oomori_images/oomori_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style>
+        .reviews h1 {
+            text-shadow: 0 0px 30px rgb(237, 255, 73); /* Add drop shadow */
+        }
+    </style>
+</head>
+
+<body>
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="navbar">
+        <a href="https://www.facebook.com/oomori.ph">
+            <div class="logo">
+                <img src="oomori_images/oomori_logo.png" alt="logo">
+            </div>
+        </a>
+        <ul>
+            <li><a  class="active" href="Oomori_Home.html" class="active">Home</a></li>
+            <li><a href="Oomori_Menu.html">Menu</a></li>
+            <li><a href="Oomori_AboutUs.html">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="" id="openFormButton">Reserve Now!</a></li>
+        </ul>
+    </div>
+
+    <!-- HIDDEN RESERVATION FORM-->
+    <div class="popup" id="popupForm">
+        <div class="Reg-form-box">
+            <span class="close" id="closeFormButton">&times;</span>
+            <form class="Reg-form" id="reservationForm" onsubmit="return validateForm()">
+                <h2>Reservation Form</h2>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder ="Enter your name here" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder ="someone@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone"placeholder ="09123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="100" placeholder ="1-100" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Reservation Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Reservation Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="request">Special Request</label>
+                    <textarea id="request" name="request" placeholder ="Enter your request here" class="special-request-textarea"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+        <img class="background-image" src="oomori_images/chef.png" alt="background photo">
+        <div class="main-content">
+            <h1>OOMORI<br>JAPANESE<br>CUISINE</h1>
+            <p>No Sushi, No Life.</p>
+        </div>
+    </div>
+
+    <!-- Most Popular Items -->
+    <div class="menu-foods">
+        <h2>Most Popular Items</h2>
+        <div class="items-container" style="max-width: 1500px;">
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/sushi-bake/4in1-sushi-bake.jpg" alt="4in1_sushi_bake">
+                    <div>
+                        <div class="item-name">4in1 Sushi Bake</div>
+                        <div class="item-details"><i>Choose up to 4 flavors.</i></div><hr>
+                        <div class="item-details"><b>5 extra nori sheets: additional ₱50</b></div>
+                        <div class="item-price">₱1,700</div>
+                        </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/sushi-bake/premium-sushi-bake.jpg" alt="premium_sushi_bake">
+                    <div>
+                        <div class="item-name">Premium Sushi Bake</div>
+                        <div class="item-details"><i>Choose up to 3 flavors.</i></div><hr>
+                        <div class="item-details"><b>5 extra nori sheets: additional ₱50</b></div>
+                        <div class="item-price">₱1,990</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Next 2 foods-->
+        <div class="items-container" style="max-width: 1500px;">
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/rolls/caifornia-maki.jpg" alt="california_maki">
+                    <div>
+                        <div class="item-name">California Maki</div>
+                        <div class="item-details"><i>Inside-out sushi roll with crab, avocado, and cucumber, often topped with tobiko or sesame seeds.</i></div>
+                        <div class="item-price">₱250</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/main/omurice.jpg" alt="omurice">
+                    <div>
+                        <div class="item-name">Omurice</div>
+                        <div class="item-details"><i>Japanese omelet filled with fried rice, typically topped with ketchup or a demi-glace sauce.</i></div>
+                        <div class="item-price">₱280</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Next 2 foods-->
+        <div class="items-container" style="max-width: 1500px;">
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/sushi-sashimi/sake.jpg" alt="sake">
+                    <div>
+                        <div class="item-name">Sake</div>
+                        <div class="item-details"><i>Fresh, thinly sliced raw salmon served with soy sauce and wasabi.<hr></i></div>
+                        <div class="item-details"><b>Salmon Sushi: additional ₱10<br><br></b></div>
+                        <div class="item-price">₱290</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-details">
+                    <img src="foods/main/yakisoba.jpg" alt="yakisoba">
+                    <div>
+                        <div class="item-name">Yakisoba</div>
+                        <div class="item-details"><i>Stir-fried noodles with vegetables, and often meat or seafood, seasoned with a savory sauce.</i></div>
+                        <div class="item-price">₱250</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT IS OOMORI -->
+    <div class="short-info">
+        <div class="short-content">
+            <div>
+                <h2>What is Oomori?</h2>
+                <p>We opened Oomori with one goal in mind: to provide our guests with a unique, delicious, and unforgettable dining experience. Our commitment to 
+                    excellence is reflected in every aspect of our restaurant. From the moment you step through our doors, you will be immersed in an atmosphere 
+                    that combines traditional charm with contemporary elegance. Our warm and inviting ambiance is designed to make you feel comfortable and welcomed, 
+                    setting the stage for an exceptional culinary adventure. We take great pride in our exceptional service, ensuring that every visit to Oomori is a memorable one. 
+                    Whether you are joining us for a special occasion or a casual meal, we strive to exceed your expectations and create lasting memories </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h1 style="text-align: center; font-size: 40px;">GALLERY</h1>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" style="padding-bottom: 40px; align-items: center;">
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery1.jpg" alt="Gallery 1"></div>
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery3.png" alt="Gallery 3"></div>
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery2.png" alt="Gallery 2"></div>
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery4.jpg" alt="Gallery 4"></div>
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery5.jpg" alt="Gallery 5"></div>
+                <div class="swiper-slide"><img src="oomori_images/gallery/gallery6.jpg" alt="Gallery 6"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+    
+    <hr style="height: 3px; background: black; margin-bottom: 20px;">
+    
+    <!-- Reviews Section -->
+    <div class="reviews">
+    <h1 style="text-align: center; font-size: 40px;">What does our customer say?</h1>
+        <div class="swiper-container";>
+            <div class="swiper-wrapper" style="padding-bottom: 40px; align-items: center">
+                <div class="swiper-slide"><img src="oomori_images/reviews/review1.png" alt="review 1"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review2.png" alt="review 2"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review3.png" alt="review 3"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review4.png" alt="review 4"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review5.png" alt="review 5"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review6.png" alt="review 6"></div>
+                <div class="swiper-slide"><img src="oomori_images/reviews/review7.png" alt="review 7"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-section">
+            <h3>Oomori</h3>
+            <ul>
+                <li><a href="Oomori_AboutUs.html">About Us</a></li>
+                <li><a href="" id="openFormButtonFooter">Reserve Now!</a></li>
+                <li><a href="Oomori_Home.html#gallery">Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="oomori_images/address-logo.png" alt="Address Logo" class="contact-logo">
+                    <p>One Banawe Complex, Banawe Street Corner Calamba Street, Quezon City, Philippines</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/phone-logo.png" alt="Phone Logo" class="contact-logo">
+                    <p>0918 540 8890</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/email-logo.png" alt="Email Logo" class="contact-logo">
+                    <p>oomorijapanesecuisine@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Opening Hours</h3>
+            <p>Monday to Sunday</p>
+            <p>11:00AM - 9:00PM</p>
+        </div>
+        <!-- Keep Updated Section -->
+        <div class="footer-section">
+            <h3>Keep Updated!</h3>
+            <p>Enter your email to be updated with our special offers and announcements!</p>
+            <form id="newsletter-form">
+                <input type="email" id="email" placeholder="Enter your email...">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+<script src="swiper.js"></script>
+<script src="reservation.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Oomori | Menu</title>
+    <link rel="icon" type="image/png" href="oomori_images/oomori_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        #category-indicator {
+    font-size: 30px;
+}
+    </style>
+    
+</head>
+<body>
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!--Navigation Bar-->
+    <div class="navbar">
+        <a href="https://www.facebook.com/oomori.ph">
+            <div class="logo">
+                <img src="oomori_images/oomori_logo.png" alt="logo">
+            </div>
+        </a>
+        <ul>
+            <li><a href="Oomori_Home.html">Home</a></li>
+            <li><a class="active" href="Oomori_Menu.html">Menu</a></li>
+            <li><a href="Oomori_AboutUs.html">About Us</a></li>
+            <li><a href="Oomori_Home.html#gallery">Gallery</a></li>
+
+            <li><a href="" id="openFormButton">Reserve Now!</a></li>
+        </ul>
+    </div>
+
+    <!-- HIDDEN RESERVATION FORM-->
+    <div class="popup" id="popupForm">
+        <div class="Reg-form-box">
+            <span class="close" id="closeFormButton">&times;</span>
+            <form class="Reg-form" id="reservationForm" onsubmit="return validateForm()">
+                <h2>Reservation Form</h2>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Reservation Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Reservation Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="request">Special Request</label>
+                    <textarea id="request" name="request" class="special-request-textarea"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Menu Navigation-->
+    <div class="menu-section">
+        <div class="transparent-container">
+        <h2 id="category-header" style="font-size: 50px; margin: -3px;">Our Menu</h2>
+            <div class="menu-categories">
+                <a href="#all" class="category-link active" onclick="showAllItems()">All</a>
+                <a href="#starters" class="category-link" onclick="showCategory('starters')">Starters</a>
+                <a href="#sushi-sashimi" class="category-link" onclick="showCategory('sushi-sashimi')">Sushi/Sashimi</a>
+                <a href="#salad" class="category-link" onclick="showCategory('salad')">Salad</a>
+                <a href="#rolls" class="category-link" onclick="showCategory('rolls')">Rolls</a>
+                <div class="dropdown" onmouseover="showDropdown()" onmouseleave="hideDropdown()">
+                    <a href="javascript:void(0);"class="category-link">More <span class="dropdown-icon">▼</span></a>
+                    <div class="dropdown-content">
+                        <a href="#inari-gunkan" class="category-link" onclick="showCategory('inari-gunkan')">Inari Gunkan</a>
+                        <a href="#main" class="category-link" onclick="showCategory('main')">Main</a>
+                        <a href="#tempura" class="category-link" onclick="showCategory('tempura')">Tempura</a>
+                        <a href="#snacks" class="category-link" onclick="showCategory('snacks')">Snacks</a>
+                        <a href="#bento-sets" class="category-link" onclick="showCategory('bento-sets')">Bento Sets</a>
+                        <a href="#platters" class="category-link" onclick="showCategory('platters')">Platters</a>
+                        <a href="#sushi-bake" class="category-link" onclick="showCategory('sushi-bake')">Sushi Bake</a>
+                    </div>
+                </div>
+            </div>
+            <hr style="height: 3px; background: black;">
+            <h3 id="category-indicator"></h3>
+            <div class="items-container" id="menu-container">
+
+            <!--Starters Category-->
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/agedashi-tofu.jpg" alt="agedashi-tofu">
+                        <div>
+                            <div class="item-name">Agedashi Tofu</div>
+                            <div class="item-details"><i>Lightly fried tofu served in a flavorful broth with grated daikon, green onions, and bonito flakes..</i></div>
+                        </div>
+                        <div class="item-price">₱250</div>
+                    </div>
+                </div>
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/chicken-karaage.jpg" alt="chicken-karaage">
+                        <div>
+                            <div class="item-name">Chicken Karaage</div>
+                            <div class="item-details"><i>Japanese-style fried chicken marinated in soy sauce, garlic, and ginger, typically served with a wedge of lemon.</i></div>
+                        </div>
+                        <div class="item-price">₱300</div>
+                    </div>
+                </div>
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/okonomiyaki.jpg" alt="okonomiyaki">
+                        <div>
+                            <div class="item-name">Okonomiyaki</div>
+                            <div class="item-details"><i>Savory Japanese pancake made with flour, eggs, shredded cabbage, and various toppings like seafood or meat, drizzled with okonomiyaki sauce and mayonnaise.</i></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/takoyaki.jpg" alt="takoyaki">
+                        <div>
+                            <div class="item-name">Takoyaki</div>
+                            <div class="item-details"><i>Japanese octopus-filled savory batter balls.<hr></i></div>
+                            <div class="item-details"><b>Takoyaki with Cheese: additional ₱10<br><br></b></div>
+                            <div class="item-price">₱130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/fried-salmon-balls.jpg" alt="fried-salmon-balls">
+                        <div>
+                            <div class="item-name">Fried Salmon Balls</div>
+                            <div class="item-details"><i>Deep-fried salmon balls, crispy on the outside and tender on the inside, often served with dipping sauce.</i></div>
+                            <div class="item-price">₱260</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item starters">
+                    <div class="item-details">
+                        <img src="foods/starters/miso-soup.jpg" alt="miso-soup">
+                        <div>
+                            <div class="item-name">Miso Soup</div>
+                            <div class="item-details"><i>Traditional Japanese soup made with dashi broth, miso paste, tofu, seaweed, and green onions.</i></div>
+                            <div class="item-price">₱120</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Sushi/Sashimi Category-->
+                <div class="item sushi-sashimi">
+                    <div class="item-details">
+                        <img src="foods/sushi-sashimi/sake.jpg" alt="sake">
+                        <div>
+                            <div class="item-name">Sake</div>
+                            <div class="item-details"><i>Fresh, thinly sliced raw salmon served with soy sauce and wasabi.<hr></i></div>
+                            <div class="item-details"><b>Salmon Sushi: additional ₱10<br><br></b></div>
+                            <div class="item-price">₱290</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-sashimi">
+                    <div class="item-details">
+                        <img src="foods/sushi-sashimi/ahi.jpg" alt="ahi">
+                        <div>
+                            <div class="item-name">Ahi</div>
+                            <div class="item-details"><i>Fresh, thinly sliced raw tuna served with soy sauce and wasabi.<hr></i></div>
+                            <div class="item-details"><b>Tuna Sushi: additional ₱10</b></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-sashimi">
+                    <div class="item-details">
+                        <img src="foods/sushi-sashimi/tamago.jpg" alt="tamago">
+                        <div>
+                            <div class="item-name">Tamago</div>
+                            <div class="item-details"><i>Scrambled Egg.</i></div><hr>
+                            <div class="item-details"><b>Tamago Sushi: additional ₱10</b></div>
+                            <div class="item-price">₱180</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-sashimi">
+                    <div class="item-details">
+                        <img src="foods/sushi-sashimi/kani.jpg" alt="kani">
+                        <div>
+                            <div class="item-name">Kani</div>
+                            <div class="item-details"><i>Crabstick.</i></div><hr>
+                            <div class="item-details"><b>Kani Sushi: additional ₱10</b></div>
+                            <div class="item-price">₱200</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Salad Category-->
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/kani-salad.jpg" alt="kani-salad">
+                        <div>
+                            <div class="item-name">Kani Salad</div>
+                            <div class="item-details"><i>Shredded imitation crab, cucumber, Japanese mayo, and tobiko.</i></div>
+                            <div class="item-price">₱290</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/spicy-tuna-salad.jpg" alt="spicy-tuna-salad">
+                        <div>
+                            <div class="item-name">Spicy Tuna Salad</div>
+                            <div class="item-details"><i>Fresh tuna mixed with spicy mayo, often served on a bed of greens or as a topping for sushi.</i></div>
+                            <div class="item-price">₱370</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/spicy-salmon-salad.jpg" alt="spicy-salmon-salad">
+                        <div>
+                            <div class="item-name">Spicy Salmon Salad</div>
+                            <div class="item-details"><i>Fresh salmon, spicy mayo, mixed greens, and veggies for a tasty, zesty salad.</i></div>
+                            <div class="item-price">₱390</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/wakame-salad.jpg" alt="wakame-salad">
+                        <div>
+                            <div class="item-name">Wakame Salad</div>
+                            <div class="item-details"><i>Seaweed salad seasoned with sesame oil, vinegar, and sometimes garnished with sesame seeds.</i></div>
+                            <div class="item-price">₱200</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/oomori-chirashi-bowl.jpg" alt="oomori-chirashi-bowl">
+                        <div>
+                            <div class="item-name">Oomori Chirashi Bowl</div>
+                            <div class="item-details"><i>Oomori's special chirashi bowl.</i></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item salad">
+                    <div class="item-details">
+                        <img src="foods/salad/spam-and-egg-chirashi-bowl.jpg" alt="spam-and-egg-chirashi-bowl">
+                        <div>
+                            <div class="item-name">Spam and Egg Chirashi Bowl</div>
+                            <div class="item-details"><i>Savory Spam, scrambled eggs, and assorted toppings over seasoned rice.</i></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Rolls Category-->
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/caifornia-maki.jpg" alt="california_maki">
+                        <div>
+                            <div class="item-name">California Maki</div>
+                            <div class="item-details"><i>Inside-out sushi roll with crab, avocado, and cucumber, often topped with tobiko or sesame seeds.</i></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/crispy-kani-maki.jpg" alt="crispy-kani-maki">
+                        <div>
+                            <div class="item-name">Crispy Kani Maki</div>
+                            <div class="item-details"><i>Sushi roll featuring crispy fried crab, often with avocado and cucumber.</i></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/mango-wrapped-kani.jpg" alt="mango-wrapped-kani">
+                        <div>
+                            <div class="item-name">Mango Wrapped Kani</div>
+                            <div class="item-details"><i>Sushi roll with crab meat and avocado, wrapped in thinly sliced mango.</i></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/fried-sriracha-maki.jpg" alt="fried-sriracha-maki">
+                        <div>
+                            <div class="item-name">Fried Sriracha Maki</div>
+                            <div class="item-details"><i>Sushi roll with a spicy Sriracha kick, often featuring fried ingredients like tempura shrimp or chicken.</i></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/spicy-shrimp-maki.jpg" alt="spicy-shrimp-maki">
+                        <div>
+                            <div class="item-name">Spicy Shrimp Maki</div>
+                            <div class="item-details"><i>Sushi roll with shrimp mixed with spicy mayo, often including avocado or cucumber.</i></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/geisha-roll.jpg" alt="geisha-roll">
+                        <div>
+                            <div class="item-name">Geish Roll</div>
+                            <div class="item-details"><i>Delicate sushi roll with various fillings, often wrapped in cucumber instead of seaweed for a lighter touch.</i></div>
+                            <div class="item-price">₱320</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/dragon-roll.jpg" alt="dragon-roll">
+                        <div>
+                            <div class="item-name">Dragon Roll</div>
+                            <div class="item-details"><i>Sushi roll typically featuring eel and cucumber, topped with thinly sliced avocado to resemble a dragon.</i></div>
+                            <div class="item-price">₱360</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/firecracker-roll.jpg" alt="firecracker-roll">
+                        <div>
+                            <div class="item-name">Firecracker Roll</div>
+                            <div class="item-details"><i>Spicy sushi roll, usually with tempura shrimp or spicy tuna, topped with spicy mayo and crunchy tempura flakes.</i></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/salmon-teriyaki-maki.jpg" alt="salmon-teriyaki-maki">
+                        <div>
+                            <div class="item-name">Salmon Teriyaki Maki</div>
+                            <div class="item-details"><i>Sushi roll with grilled salmon teriyaki, avocado, and cucumber.</i></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/salmon-wrapped-maki-with-truffle-oil.jpg" alt="salmon-wrapped-maki-with">
+                        <div>
+                            <div class="item-name">Salmon Wrapped Maki with Truffle Oil</div>
+                            <div class="item-details"><i>Fresh salmon wrapped around sushi rice with truffle oil.<hr></i></div>
+                            <div class="item-details"><b>Salmon Wrapped Aburi with Truffle Oil: additional ₱10<br><br></b></div>
+                            <div class="item-price">₱390</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/chef-special.jpg" alt="chef-special">
+                        <div>
+                            <div class="item-name">Chef's Special</div>
+                            <div class="item-details"><i>A unique and creative sushi roll crafted by the chef, often featuring a mix of premium ingredients.</i></div>
+                            <div class="item-price">₱390</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/unagi-roll.jpg" alt="unagi-roll">
+                        <div>
+                            <div class="item-name">Unagi Roll</div>
+                            <div class="item-details"><i>Sushi roll with grilled eel, cucumber, and avocado, drizzled with sweet eel sauce.</i></div>
+                            <div class="item-price">₱450</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/flaming-nigiri.jpg" alt="flaming-nigiri">
+                        <div>
+                            <div class="item-name">Flaming Nigiri</div>
+                            <div class="item-details"><i>Nigiri sushi with a spicy kick from wasabi and sriracha.</i></div>
+                            <div class="item-price">₱320</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/salmon-nigiri.jpg" alt="salmon-nigiri">
+                        <div>
+                            <div class="item-name">Salmon Nigiri</div>
+                            <div class="item-details"><i>A classic sushi delicacy featuring fresh, raw salmon atop a small mound of seasoned rice.<hr></i></div>
+                            <div class="item-details"><b>Salmon Nigiri with Cheese: additional ₱10</b></div>
+                            <div class="item-price">₱320</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/salmon-nigiri-caramelized-onion.jpg" alt="salmon-nigiri-caramelized-onion">
+                        <div>
+                            <div class="item-name">Salmon Nigiri with Cheese & Caramelized Onions<hr></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱160</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item rolls">
+                    <div class="item-details">
+                        <img src="foods/rolls/spam-musubi.jpg" alt="spam-musubi">
+                        <div>
+                            <div class="item-name">Spam Musubi</div>
+                            <div class="item-details"><i>A popular Hawaiian snack featuring a slice of grilled Spam on top of a block of rice, wrapped with nori (seaweed).<hr></i></div>
+                            <div class="item-details"><b>With egg: additional ₱50</b></div>
+                            <div class="item-price">₱210</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Inari Gunkan Category-->
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-kani.jpeg" alt="inari-kani">
+                        <div>
+                            <div class="item-name">Inari Kani</div>
+                            <div class="item-details"><i>Sweet tofu pockets filled with sushi rice and imitation crab meat.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-spicy-salmon.jpeg" alt="inari-spicy-salmon">
+                        <div>
+                            <div class="item-name">Inari Spicy Salmon</div>
+                            <div class="item-details"><i>Inari pockets filled with sushi rice and spicy salmon mixture.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-unagi.jpeg" alt="inari-unagi">
+                        <div>
+                            <div class="item-name">Inari Unagi</div>
+                            <div class="item-details"><i>Sweet tofu pockets filled with sushi rice and grilled eel.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱290</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-beef-egg.jpeg" alt="inari-beef-egg">
+                        <div>
+                            <div class="item-name">Inari Beef and egg</div>
+                            <div class="item-details"><i>Inari pockets filled with sushi rice, thinly sliced beef, and egg.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-takoyaki.jpeg" alt="inari-takoyaki">
+                        <div>
+                            <div class="item-name">Inari Takoyaki</div>
+                            <div class="item-details"><i>Inari pockets filled with sushi rice and takoyaki (Octopus balls).<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item inari-gunkan">
+                    <div class="item-details">
+                        <img src="foods/inari-gunkan/inari-set.jpg" alt="inari-set">
+                        <div>
+                            <div class="item-name">Inari Set</div>
+                            <div class="item-details"><i>5pcs of Inari with different flavors each!</i></div><hr>
+                            <div class="item-details"><b>One flavor each: 5pcs.</b></div>
+                            <div class="item-price">₱650</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Main Category-->
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/chicken-teppanyaki.jpg" alt="chicken-teppanyaki">
+                        <div>
+                            <div class="item-name">Chicken Teppanyaki</div>
+                            <div class="item-details"><i>Grilled chicken served with vegetables and often a side of dipping sauce, cooked on a teppan (iron griddle).</i></div>
+                            <div class="item-price">₱290</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/seafood-teppanyaki.jpg" alt="seafood-teppanyaki">
+                        <div>
+                            <div class="item-name">Seafood Teppanyaki</div>
+                            <div class="item-details"><i>Mixed seafood, including shrimp, scallops, and fish, grilled with vegetables on a teppan.</i></div>
+                            <div class="item-price">₱290</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/beef-teppanyaki.jpg" alt="beef-teppanyaki">
+                        <div>
+                            <div class="item-name">Beef Teppanyaki</div>
+                            <div class="item-details"><i>Grilled beef served with vegetables, cooked on a teppan, often accompanied by a flavorful sauce.</i></div>
+                            <div class="item-price">₱370</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/beef-wakame.jpg" alt="beef-wakame">
+                        <div>
+                            <div class="item-name">Beef Wakame</div>
+                            <div class="item-details"><i>Beef dish cooked with seaweed, offering a savory and slightly briny flavor.</i></div>
+                            <div class="item-price">₱390</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/yakisoba.jpg" alt="yakisoba">
+                        <div>
+                            <div class="item-name">Yakisoba</div>
+                            <div class="item-details"><i>Stir-fried noodles with vegetables, and often meat or seafood, seasoned with a savory sauce.</i></div>
+                            <div class="item-price">₱250</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/stir-fry-vegetable.jpg" alt="stir-fry-vegetable">
+                        <div>
+                            <div class="item-name">Stir Fry Vegetable</div>
+                            <div class="item-details"><i>A mix of vegetables stir-fried with soy sauce and other seasonings.</i></div>
+                            <div class="item-price">₱200</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/chicken-teriyaki.jpeg" alt="chicken-teriyaki">
+                        <div>
+                            <div class="item-name">Chicken Teriyaki</div>
+                            <div class="item-details"><i>Grilled chicken glazed with a sweet and savory teriyaki sauce, served with rice and vegetables.</i></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/omurice.jpg" alt="omurice">
+                        <div>
+                            <div class="item-name">Omurice</div>
+                            <div class="item-details"><i>Japanese omelet filled with fried rice, typically topped with ketchup or a demi-glace sauce.</i></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/omurice-curry.jpg" alt="omurice-curry">
+                        <div>
+                            <div class="item-name">Omurice Curry</div>
+                            <div class="item-details"><i>Omurice served with a rich and flavorful Japanese curry sauce.</i></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/katsudon.jpg" alt="katsudon">
+                        <div>
+                            <div class="item-name">Katsudon</div>
+                            <div class="item-details"><i>Bowl of rice topped with a deep-fried pork cutlet, egg, and savory sauce.</i></div>
+                            <div class="item-price">₱340</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/katsu-curry.jpg" alt="katsu-curry">
+                        <div>
+                            <div class="item-name">Katsu Curry</div>
+                            <div class="item-details"><i>Breaded and fried pork cutlet served with rice and Japanese curry.</i></div>
+                            <div class="item-price">₱360</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/chicken-oyakudon.jpeg" alt="chicken-oyakudon">
+                        <div>
+                            <div class="item-name">Chicken Oyakudon</div>
+                            <div class="item-details"><i>Bowl of rice topped with chicken and egg cooked in a savory dashi broth.</i></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/gyudon.jpg" alt="gyudon">
+                        <div>
+                            <div class="item-name">Gyudon</div>
+                            <div class="item-details"><i>Bowl of rice topped with thinly sliced beef and onions simmered in a mildly sweet soy-based sauce.</i></div>
+                            <div class="item-price">₱340</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/unagi-don.jpg" alt="unagi-don">
+                        <div>
+                            <div class="item-name">Unagi Don</div>
+                            <div class="item-details"><i>Bowl of rice topped with grilled eel and drizzled with a sweet eel sauce.</i></div>
+                            <div class="item-price">₱600</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/gohan.jpg" alt="gohan">
+                        <div>
+                            <div class="item-name">Gohan</div>
+                            <div class="item-details"><i>Plain Rice.</i></div>
+                            <div class="item-price">₱50</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/chahan.jpg" alt="chahan">
+                        <div>
+                            <div class="item-name">Chahan</div>
+                            <div class="item-details"><i>Japanese fried rice.</i></div>
+                            <div class="item-price">₱65</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item main">
+                    <div class="item-details">
+                        <img src="foods/main/soft-boiled-tamago.jpeg" alt="soft-boiled-tamago">
+                        <div>
+                            <div class="item-name">Soft Boiled Tamago</div>
+                            <div class="item-details"><i>Soft-boiled eggs with a slightly runny yolk, often marinated in a soy-based sauce.</i></div>
+                            <div class="item-price">₱70</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Tempura Category-->
+                <div class="item tempura">
+                    <div class="item-details">
+                        <img src="foods/tempura/shrimp-tempura.jpg" alt="shrimp-tempura">
+                        <div>
+                            <div class="item-name">Shrimp Tempura</div>
+                            <div class="item-details"><i>Lightly battered and deep-fried shrimp, crispy and golden brown.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱650</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item tempura">
+                    <div class="item-details">
+                        <img src="foods/tempura/kani-tempura.jpg" alt="kani-tempura">
+                        <div>
+                            <div class="item-name">Kani Tempura</div>
+                            <div class="item-details"><i>Lightly battered and deep-fried imitation crab sticks, crispy on the outside.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱280</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item tempura">
+                    <div class="item-details">
+                        <img src="foods/tempura/salmon-tempura.jpg" alt="salmon-tempura">
+                        <div>
+                            <div class="item-name">Salmon Tempura</div>
+                            <div class="item-details"><i>Lightly battered and deep-fried salmon pieces, crispy and flavorful.<hr></i></div>
+                            <div class="item-details"><b>2pcs per order</b></div>
+                            <div class="item-price">₱300</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Snacks Category-->
+                <div class="item snacks">
+                    <div class="item-details">
+                        <img src="foods/snacks/tamago-sando.jpg" alt="tamago-sando">
+                        <div>
+                            <div class="item-name">Tamago Sando</div>
+                            <div class="item-details"><i>Japanese egg sandwich made with soft, fluffy tamago (sweet omelet) between slices of white bread.</i></div>
+                            <div class="item-price">₱260</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item snacks">
+                    <div class="item-details">
+                        <img src="foods/snacks/shrimp-sando.jpg" alt="shrimp-sando">
+                        <div>
+                            <div class="item-name">Shrimp Sando</div>
+                            <div class="item-details"><i>Sandwich featuring shrimp, often with lettuce and a light mayo dressing, between slices of bread.</i></div>
+                            <div class="item-price">₱360</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Bent Sets Category-->
+                <div class="item bento-sets">
+                    <div class="item-details">
+                        <img src="foods/bento-sets/pork-katsu-bento.jpg" alt="pork-katsu-bento">
+                        <div>
+                            <div class="item-name">Pork Katsu Bento Set</div>
+                            <div class="item-details"><i>Pork Katsudon Rice, 4pcs California Maki, Shredded Vegetables.<hr></i></div>
+                            <div class="item-details"><b>With miso soup: additional ₱100<br><br></b></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item bento-sets">
+                    <div class="item-details">
+                        <img src="foods/bento-sets/gyudon-bento.jpg" alt="gyudon-bento">
+                        <div>
+                            <div class="item-name">Gyudon Bento Set</div>
+                            <div class="item-details"><i>Gyudon Rice, 4pcs Califormia Maki, Egg.<hr></i></div>
+                            <div class="item-details"><b>With miso soup: additional ₱100<br><br></b></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item bento-sets">
+                    <div class="item-details">
+                        <img src="foods/bento-sets/ebi-tempura-bento.jpg" alt="ebi-tempura-bento">
+                        <div>
+                            <div class="item-name">Ebi Tempura Bento Set</div>
+                            <div class="item-details"><i>3pcs Shrimp Tempura, Rice, 4pcs California Maki, Shredded Vegetables.<hr></i></div>
+                            <div class="item-details"><b>With miso soup: additional ₱100<br><br></b></div>
+                            <div class="item-price">₱380</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item bento-sets">
+                    <div class="item-details">
+                        <img src="foods/bento-sets/chicken-teppanyaki-bento.jpg" alt="chicken-teppanyaki-bento">
+                        <div>
+                            <div class="item-name">Chicken Teppanyaki Bento Set</div>
+                            <div class="item-details"><i>Chicken Teppanyaki, Rice, 4pcs California Maki, Stir Fry Vegetables.<hr></i></div>
+                            <div class="item-details"><b>With miso soup: additional ₱100<br><br></b></div>
+                            <div class="item-price">₱340</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Platters Category-->
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/salmon-sashimi-platter.jpg" alt="salmon-sashimi-platter">
+                        <div>
+                            <div class="item-name">Salmon Sashimi Platter</div>
+                            <div class="item-details"><i>20pcs Fresh Salmon Sashimi.</i></div>
+                            <div class="item-price">₱1,050</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/tuna-sashimi-platter.jpg" alt="tuna-sashimi-platter">
+                        <div>
+                            <div class="item-name">Tuna Sashimi Platter</div>
+                            <div class="item-details"><i>20pcs Fresh Tuna Sashimi.</i></div>
+                            <div class="item-price">₱1,000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/mixed-sashimi-platter.jpg" alt="mixed-sashimi-platter">
+                        <div>
+                            <div class="item-name">Mixed Sashimi Platter</div>
+                            <div class="item-details"><i>10pcs Fresh Salmon Sashimi, 10pcs Fresh Tuna Sashimi.</i></div>
+                            <div class="item-price">₱1,025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/party-sashimi-platter.jpg" alt="party-sashimi-platter">
+                        <div>
+                            <div class="item-name">Party Sashimi Platter</div>
+                            <div class="item-details"><i>10pcs Fresh Salmon Sashimi, 10pcs Fresh Tuna Sashimi, 10pcs Tamago, 10pcs Kani.</i></div>
+                            <div class="item-price">₱1,500</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/oomori-rolls-platter.jpg" alt="oomori-rolls-platter">
+                        <div>
+                            <div class="item-name">Oomori Rolls Platter</div>
+                            <div class="item-details"><i>48pcs, 12 kinds. California maki, Crispy Kani Maki, Mango Wrapped Maki, Sriracha Roll, 
+                                Spicy Shrimp Maki, Geisha Roll, Dragon Roll, Firecracker Roll, Salmon Teriyaki Maki, Salmon Wrapped with Truffle 
+                                Oil Maki, Shef's Special, Unagi Roll.<br><br></i></div>
+                            <div class="item-price">₱1,935</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/regular-rolls-platter.jpg" alt="regular-rolls-platter">
+                        <div>
+                            <div class="item-name">Regular Rolls Platter</div>
+                            <div class="item-details"><i>24pcs, 6 kinds. California Maki, Crispy Kani Maki, Mango Wrapped Maki, Srirachi Roll, 
+                                Spicy Shrimp Maki, Geisha Roll.</i></div>
+                            <div class="item-price">₱820</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item platters">
+                    <div class="item-details">
+                        <img src="foods/platters/premium-rolls-platter.jpg" alt="premium-rolls-platter">
+                        <div>
+                            <div class="item-name">Premium Rolls Platter</div>
+                            <div class="item-details"><i>24pcs, 6 kinds. Dragon Roll, Firecracker Roll, Salmon Teriyaki Maki, Salmon Wrapped with 
+                                Truffile Oil Maki, Chef's Special, Unagi Roll.<br><br></i></div>
+                            <div class="item-price">₱1,115</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!--Sushi Bake Category-->
+                <div class="item sushi-bake">
+                    <div class="item-details">
+                        <img src="foods/sushi-bake/4in1-sushi-bake.jpg" alt="4in1-sushi-bake">
+                        <div>
+                            <div class="item-name">4in1 Sushi Bake</div>
+                            <div class="item-details"><i>Choose up to 4 flavors.</i></div><hr>
+                            <div class="item-details"><b>5 extra nori sheets: additional ₱50</b></div>
+                            <div class="item-price">₱1,700</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-bake">
+                    <div class="item-details">
+                        <img src="foods/sushi-bake/premium-sushi-bake.jpg" alt="premium-sushi-bake">
+                        <div>
+                            <div class="item-name">Premium Sushi Bake</div>
+                            <div class="item-details"><i>Choose up to 3 flavors.</i></div><hr>
+                            <div class="item-details"><b>5 extra nori sheets: additional ₱50</b></div>
+                            <div class="item-price">₱1,990</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-bake">
+                    <div class="item-details">
+                        <img src="foods/sushi-bake/2in1-sushi-bake.jpg" alt="2in1-sushi-bake">
+                        <div>
+                            <div class="item-name">2in1 Sushi Bake</div>
+                            <div class="item-details"><i>Choose up to 2 flavors.</i></div><hr>
+                            <div class="item-details"><b>5 extra nori sheets: additional ₱50</b></div>
+                            <div class="item-price">₱850</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item sushi-bake">
+                    <div class="item-details">
+                        <img src="foods/sushi-bake/8x8-premium-sushi-bake.jpg" alt="8x8-premium-sushi-bake">
+                        <div>
+                            <div class="item-name">Premium Sushi Bake 8x8</div>
+                            <div class="item-details"><i>Choose up to 2 flavors.</i></div><hr>
+                            <div class="item-details"><b>5 extra nori sheets: additional ₱50<br><br></b></div>
+                            <div class="item-price">₱995</div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <!-- Footer Section-->
+    <footer>
+        <div class="footer-section">
+            <h3>Oomori</h3>
+            <ul>
+                <li><a href="Oomori_AboutUs.html">About Us</a></li>
+                <li><a href="" id="openFormButtonFooter">Reserve Now!</a></li>
+                <li><a href="Oomori_Home.html#gallery">Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="oomori_images/address-logo.png" alt="Address Logo" class="contact-logo">
+                    <p>One Banawe Complex, Banawe Street Corner Calamba Street, Quezon City, Philippines</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/phone-logo.png" alt="Phone Logo" class="contact-logo">
+                    <p>0918 540 8890</p>
+                </div>
+                <div class="contact-item">
+                    <img src="oomori_images/email-logo.png" alt="Email Logo" class="contact-logo">
+                    <p>oomorijapanesecuisine@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Opening Hours</h3>
+            <p>Monday to Sunday</p>
+            <p>11:00AM - 9:00PM</p>
+        </div>
+        <!-- Keep Updated Section -->
+        <div class="footer-section">
+            <h3>Keep Updated!</h3>
+            <p>Enter your email to be updated with our special offers and announcements!</p>
+            <form id="newsletter-form">
+                <input type="email" id="email" placeholder="Enter your email...">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+<script src="reservation.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
